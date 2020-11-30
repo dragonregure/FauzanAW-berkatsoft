@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <div class="">
+        <input type="text" id="firstWord">
+        <input type="text" id="secondWord">
+        <button onclick="showResult()">Test</button>
+    </div>
+    <p id="result"></p>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        function showResult() {
+            first = $('#firstWord').val();
+            second = $('#secondWord').val();
+            let result = 'TRUE';
+            if (!containLetters(first, second)) result = 'FALSE';
+            $('#result').html(result);
+        }
+
+        function containLetters(firstWord, secondWord) {
+            let result = false;
+            firstWord = firstWord.toLowerCase().split('');
+            secondWord = secondWord.toLowerCase().split('');
+            for (var i = 0; i < firstWord.length; i++) {
+                for (var j = 0; j < secondWord.length; j++) {
+                    if (firstWord[i] == secondWord[j]) {
+                        result = true;
+                        break;
+                    }
+                    result = false;
+                }
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>
